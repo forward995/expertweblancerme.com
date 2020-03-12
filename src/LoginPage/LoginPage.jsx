@@ -1,4 +1,6 @@
 import React, { useState, useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { userActions } from '../actions'
 import { Link } from 'react-router-dom';
 import '../assets/styles.css';
 
@@ -7,6 +9,8 @@ function LoginPage() {
     const [ inputs, setInputs ] = useState({ username: '', password: '' })
     const { username, password } = inputs;
     const [ submitted, setSubmitted ] = useState(false);
+    const loggingIn = useSelector(state => state.authentication.loggingIn)
+    const dispatch = useDispatch();
     
     useEffect(() => { 
         document.getElementsByClassName("s2class")[0].style.color = "#748194";
@@ -25,7 +29,7 @@ function LoginPage() {
         e.preventDefault();
         setSubmitted(true);
         if( username && password ) {
-            console.log("login action!");
+            dispatch(userActions.login(username, password))
         }
     }   
 
@@ -45,25 +49,35 @@ function LoginPage() {
             </div>
             <div className="c2">
                 <form className="signin" onSubmit={handleSubmit}>
+                    <br /><br />
                     <h1 className="signup1">SIGN IN</h1>
-                    <br /><br /><br /><br />
+                    <br /><br />
                     <input 
                         name="username" 
                         type="text" 
                         placeholder="Username*" 
-                        className="username" 
+                        className={'username' + (submitted && !username ? ' is-invalid' : '')}
                         value={username}
                         onChange={handleChange}
                     />
+                    {submitted && !username &&
+                        <div className="invalid-feedback">Username is required</div>
+                    }
                     <input 
                         name="password" 
                         type="password" 
                         placeholder="Password*" 
-                        className="username" 
+                        className={'username' + (submitted && !password ? ' is-invalid' : '')}
                         value={password}
                         onChange={handleChange}
                     />
-                    <button className="btn">Get Started</button>
+                    {submitted && !password &&
+                        <div className="invalid-feedback">Password is required</div>
+                    }
+                    <button className="btn">
+                        {loggingIn && <span className="spinner-border spinner-border-sm mr-1"></span>}
+                        Get Started
+                    </button>
                     <br /><br /><br /><br />
                     <Link to="/"><p className="signup2">Forget Password?</p></Link>
                 </form>
