@@ -1,4 +1,6 @@
 import React, { useState, useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { userActions } from '../actions'
 import { Link } from 'react-router-dom';
 import '../assets/styles.css';
 
@@ -12,6 +14,8 @@ function RegisterPage() {
 
     const { username, email, password } = user;
     const [ submitted, setSubmitted ] = useState(false)
+    const registering = useSelector(state => state.registration.registering);
+    const dispatch = useDispatch();
     
     useEffect(() => {
         document.getElementById("left").classList.remove("left_hover");
@@ -33,7 +37,7 @@ function RegisterPage() {
         setSubmitted(true);
         
         if(username && email && password) {
-            console.log(username, email, password, submitted)
+            dispatch(userActions.register(user))
         }
     }
 
@@ -79,7 +83,10 @@ function RegisterPage() {
                         value={password}
                         onChange={handleChange}
                     />
-                    <button className="btn">Sign Up</button>
+                    <button className="btn">
+                        {registering && <span className="spinner-border spinner-border-sm mr-1"></span>}
+                        Sign Up
+                    </button>
                 </form>
             </div>
         </div>

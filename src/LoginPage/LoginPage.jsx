@@ -7,15 +7,12 @@ function LoginPage() {
     const [ inputs, setInputs ] = useState({ username: '', password: '' })
     const { username, password } = inputs;
     const [ submitted, setSubmitted ] = useState(false);
-
-    console.log(submitted)
     
     useEffect(() => { 
         document.getElementsByClassName("s2class")[0].style.color = "#748194";
         document.getElementsByClassName("s1class")[0].style.color = "#EE9BA3";
         document.getElementById("right").classList.remove("right_hover");
         document.getElementById("left").classList.add("left_hover");
-        // document.getElementsByClassName("signup")[0].style.display = "none";
         document.getElementsByClassName("signin")[0].style.display = "";
     }, []);
 
