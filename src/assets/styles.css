@@ -2,11 +2,12 @@ body {
 	background:#0f62bd;
    font-family: 'Roboto';
 }
+
 ::-webkit-input-placeholder { /* Chrome/Opera/Safari */
   color: #748194;
 }
 ::-moz-placeholder { /* Firefox 19+ */
-  color: #748194;
+  color: #748194; 
 }
 :-ms-input-placeholder { /* IE 10+ */
   color: #748194;
@@ -14,7 +15,7 @@ body {
 :-moz-placeholder { /* Firefox 18- */
   color: #748194;
 }
-.container{
+.custom-container{
    /* display:none; */
    position:absolute;
 	width: auto;
@@ -154,4 +155,25 @@ a{
 }
 .signin{
    display:initial;
+}
+
+.image-size {
+   width: 150px;
+}
+
+header {
+   padding: 10px 0px;
+}
+
+.navbar-light .navbar-nav .nav-link {
+   color: white;
+   font-weight: 500;
+   font-size: 20px;
+   font-family: "Poppins", Arial, sans-serif;
+   padding: 28px 16px 29px;
+}
+
+.mr-auto {
+   width: 100%;
+   justify-content: flex-end;
 }

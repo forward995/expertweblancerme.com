@@ -42,7 +42,7 @@ function RegisterPage() {
     }
 
     return (
-        <div className="container">
+        <div className="custom-container">
             <div className="c1">
                 <div className="c11">
                     <h1 className="mainhead">PICK YOUR SPOT</h1>
@@ -57,32 +57,45 @@ function RegisterPage() {
             </div>
             <div className="c2">
                 <form className="signup" onSubmit={handleSubmit}>
+                    <br /><br />
                     <h1 className="signup1">SIGN UP</h1>
-                    <br /><br /><br /><br />
+                    <br /><br />
                     <input 
                         name="username" 
                         type="text" 
                         placeholder="Username*" 
-                        className="username" 
+                        className={'username' + (submitted && !user.username ? ' is-invalid' : '')}
                         value={username}
                         onChange={handleChange}
                     />
+                    {
+                        submitted && !user.username &&
+                        <div className="invalid-feedback" style={{marginLeft: 35}}>Username is required</div>
+                    }
                     <input 
                         name="email" 
                         type="text" 
                         placeholder="Email*" 
-                        className="username" 
+                        className={'username' + (submitted && !user.email ? ' is-invalid' : '')}
                         value={email}
                         onChange={handleChange}
                     />
+                    {
+                        submitted && !user.username &&
+                        <div className="invalid-feedback" style={{marginLeft: 35}}>Email is required</div>
+                    }
                     <input 
                         name="password" 
                         type="password" 
                         placeholder="Password*" 
-                        className="username" 
+                        className={'username' + (submitted && !user.password ? ' is-invalid' : '')}
                         value={password}
                         onChange={handleChange}
                     />
+                    {
+                        submitted && !user.username &&
+                        <div className="invalid-feedback" style={{marginLeft: 35}}>Password is required</div>
+                    }
                     <button className="btn">
                         {registering && <span className="spinner-border spinner-border-sm mr-1"></span>}
                         Sign Up

@@ -34,7 +34,7 @@ function LoginPage() {
     }   
 
     return (
-        <div className="container">
+        <div className="custom-container">
             <div className="c1">
                 <div className="c11">
                     <h1 className="mainhead">PICK YOUR SPOT</h1>
@@ -61,7 +61,7 @@ function LoginPage() {
                         onChange={handleChange}
                     />
                     {submitted && !username &&
-                        <div className="invalid-feedback">Username is required</div>
+                        <div className="invalid-feedback" style={{marginLeft: 35}}>Username is required</div>
                     }
                     <input 
                         name="password" 
@@ -72,7 +72,7 @@ function LoginPage() {
                         onChange={handleChange}
                     />
                     {submitted && !password &&
-                        <div className="invalid-feedback">Password is required</div>
+                        <div className="invalid-feedback" style={{marginLeft: 35}}>Password is required</div>
                     }
                     <button className="btn">
                         {loggingIn && <span className="spinner-border spinner-border-sm mr-1"></span>}
