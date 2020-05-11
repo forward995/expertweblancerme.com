@@ -158,7 +158,7 @@ a{
 }
 
 .image-size {
-   width: 150px;
+   width: 120px;
 }
 
 header {
@@ -176,4 +176,26 @@ header {
 .mr-auto {
    width: 100%;
    justify-content: flex-end;
+}
+
+.header {
+   background-color: transparent;
+   position: sticky;
+   top: 0;
+   transition: 0.5s;
+}
+
+.header.blue {
+   background: #333;
+}
+
+.login_btn {
+   color: #00cc83;
+}
+
+.landing-page {
+   background: #d2d6e2;
+   margin: 0;
+   padding: 0;
+   height: 1200px;
 }
