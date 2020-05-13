@@ -48,7 +48,7 @@ function RegisterPage() {
                     <h1 className="mainhead">PICK YOUR SPOT</h1>
                     <p className="mainp">Just click the buttons below to toggle between SignIn &amp; SignUp</p>
                 </div>
-                <Link to="/left" id="left">
+                <Link to="/login" id="left">
                     <h1 className="s1class"><span>SIGN</span><span className="su">IN</span></h1>
                 </Link>
                 <div id="right">

@@ -16,7 +16,6 @@ function Header() {
                 setClassName("");   
             }
         }
-       
     }
 
     useEffect(() => {
@@ -24,7 +23,7 @@ function Header() {
     })
 
     return (
-        <div className={'container-fluid header ' + className}>
+        <div className={'header ' + className}>
             <div className="container">
                 <nav className="navbar navbar-expand-lg navbar-light">
                     <Link className="navbar-brand" to="/">
