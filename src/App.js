@@ -6,6 +6,7 @@ import { HomePage } from './HomePage';
 import { LoginPage } from './LoginPage';
 // import { PrivateRoute } from './components';
 import { RegisterPage } from './RegisterPage';
+import { HookApp } from './hooks';
 
 function App() {
   return (    
@@ -14,6 +15,7 @@ function App() {
         <Route exact path="/" component={HomePage} />
         <Route path="/login" component={LoginPage}/>
         <Route path="/register" component={RegisterPage}/>
+        <Route path="/hooks" component={HookApp}/>
         <Redirect from="*" to="/"/>
       </Switch>
     </Router>
